@@ -1,5 +1,27 @@
 const functions = require("./functions");
 
+// beforeAll(() => initDatabase());
+// afterAll(() => closeDatabase());
+
+// const initDatabase = () => console.log("Database initialised...");
+// const closeDatabase = () => console.log("Database closed...");
+
+const nameCheck = () => console.log("Checking Name....");
+
+describe("Checking Names", () => {
+  beforeEach(() => nameCheck());
+
+  test("User is Jeff", () => {
+    const user = "Jeff";
+    expect(user).toBe("Jeff");
+  });
+
+  test("User is Karen", () => {
+    const user = "Karen";
+    expect(user).toBe("Karen");
+  });
+});
+
 // toBe
 test("Add 2 + 2 to equal 4", () => {
   expect(functions.add(2, 2)).toBe(4);
@@ -49,6 +71,21 @@ test("There is no I in team", () => {
 
 // Arrays
 test("Admin should be in usernames", () => {
-  usernames = ["dog", "john"];
+  usernames = ["dog", "john", "admin"];
   expect(usernames).toContain("admin");
+});
+
+// Promise
+// test("User fetched name should be Leanne Graham", () => {
+//   expect.assertions(1);
+//   return functions.fetchUser().then(data => {
+//     expect(data.name).toEqual("Leanne Graham");
+//   });
+// });
+
+// Async Await
+test("User fetched name should be Leanne Graham", async () => {
+  expect.assertions(1);
+  const data = await functions.fetchUser();
+  expect(data.name).toEqual("Leanne Graham");
 });

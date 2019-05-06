@@ -4,11 +4,15 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "testwatch": "jest --watchAll"
   },
   "author": "Erin M",
   "license": "ISC",
   "devDependencies": {
     "jest": "^24.8.0"
+  },
+  "dependencies": {
+    "axios": "^0.18.0"
   }
 }
